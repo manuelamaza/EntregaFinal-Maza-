@@ -1,0 +1,42 @@
+{% extends "AppCode/padre.html" %}
+{% load static %}
+
+{% block section1 %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <body>
+        <h1>In-Company Training</h1>
+    
+    
+        <button id="showCoursesBtn" class="btn btn-primary">show courses</button>
+    
+        <div id="courseList" style="display: none;">
+            <h2>Our Business courses:</h2>
+            <ul>
+                <li>Business Course</li>
+                <li>Cultural English and International Business Course</li>
+                <li>Technical English Course</li>
+                </ul>
+        </div>
+    
+        <script>
+            // Obtiene referencias a los elementos HTML
+            var showCoursesBtn = document.getElementById("showCoursesBtn");
+            var courseList = document.getElementById("courseList");
+    
+            // Agrega un controlador de eventos al botón
+            showCoursesBtn.addEventListener("click", function() {
+                // Cambia la visibilidad de la lista de cursos al hacer clic en el botón
+                if (courseList.style.display === "none" || courseList.style.display === "") {
+                    courseList.style.display = "block";
+                } else {
+                    courseList.style.display = "none";
+                }
+            });
+        </script>
+    
+    </body>
+
+
+
+{% endblock %}

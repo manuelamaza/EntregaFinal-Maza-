@@ -1,0 +1,63 @@
+{% extends "AppCode/padre.html" %}
+{% load static %}
+
+{% block section1 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - new team member</title>
+</head>
+<body>
+
+    <h1>Team</h1>
+    
+    <button id="mostrarEquipo" class="btn btn-primary"> Show Team</button>
+
+    <div id="equipoInfo" style="display: none;">
+        <!-- se muestran los miembros del equipo -->
+        <h2>Our Team:</h2>
+        <ul>
+            <li>Andy</li>
+            <li>Rose</li>
+            <li>John</li>
+            
+        </ul>
+
+    </div>
+
+    <script>
+        document.getElementById("mostrarEquipo").addEventListener("click", function() {
+            document.getElementById("equipoInfo").style.display = "block";
+        });
+    </script>
+    
+    {% if miFormulario.errors %}
+
+    <p style="color: red;"> Estan mal los datos, revisar</p>
+
+    {% endif %}
+
+    <form action="" method="post"> {% csrf_token %}
+        <h2>Join us!</h2>
+        <p>Please enter your info to join the team of english in focus:</p>    
+        <table>
+
+            {{ miFormulario.as_table }}
+
+        </table>
+
+        <a class="btn btn-primary" href="{% url 'postProfesor' %}">Enviar</a>
+     </form>   
+
+
+{% endblock %}
+
+
+
+
+
+
